@@ -55,7 +55,7 @@ enum Status status = decision;
 
 HAL_StatusTypeDef HAL_status;
 
-uint32_t LED_HZ;
+uint32_t LED_HZ = 1;
 
 int8_t on_off = 1;
 uint8_t state;
@@ -111,19 +111,15 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-//  setlocale(LC_ALL, "en_US.UTF-8");
-//  sprintf((char*)TxBuffer, " *** [Please choose which of these 2 modes] ***\r\n LED CONTROL\n1: BUTTON STATUS\r\n", sizeof(TxBuffer));
+
   sprintf((char*)TxBuffer,"Choose which of this topics\r\n-----------------\r\n 0: LED Control\r\n 1: Button Status\r\n-------------------\r\n\r\n\r\n\r\n\r\n");
   HAL_UART_Transmit_DMA(&huart2, TxBuffer, strlen((char*)TxBuffer));
-//  sprintf((char*)TxBuffer," 		0: LED_CONTROL  \n\r");
-//  HAL_UART_Transmit_IT(&huart2, TxBuffer, strlen((char*)TxBuffer));
-//  sprintf((char*)TxBuffer," 		1: button_Status  ");
-//  HAL_UART_Transmit_IT(&huart2, TxBuffer, strlen((char*)TxBuffer));
+
 
   UARTDMAConfig();
   while (1)
   {
-//	  HAL_status = HAL_UART_Receive(&huart2, RxBuffer, 2, 10000);
+
 	  main_state_machine();
 	  DummyTask();
     /* USER CODE END WHILE */
@@ -272,14 +268,16 @@ void UARTDMAConfig(){
 void DummyTask()
 {
 	uint32_t sec;
-	sec = LED_HZ * 500;
+	sec = 1000 / (2 * LED_HZ);
 	static uint32_t timestamp = 0;
-	if(on_off){
+	if(on_off == 1){
 		if(HAL_GetTick()>=timestamp)
 			{
-				timestamp = HAL_GetTick() + sec + 100;
+				timestamp = HAL_GetTick() + sec;
 				HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
 			}
+	}else if(on_off == 0){
+		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, 0);
 	}
 
 }
@@ -301,17 +299,17 @@ void main_state_machine(){
 		case decision:
 			if(RxBuffer[0] == '0'){
 				status = LED_Control;
-				sprintf((char*)TxBuffer,"LED_CONTROL MODE \r\n----------------\r\n a: Gain more Hz \r\n s: Reduce Hz \r\n d: ON/OFF button \r\n x: Back to menu \r\n----------------\r\n\r\n\r\n\r\n ");
+				sprintf((char*)TxBuffer,"LED_CONTROL MODE \r\n----------------\r\n a: Gain more Hz \r\n s: Reduce Hz \r\n d: ON/OFF button \r\n x: Back to menu \r\n----------------\r\n");
 				HAL_UART_Transmit_DMA(&huart2, TxBuffer, strlen((char*)TxBuffer));
 				RxBuffer[0] = '\000';
 			}else if(RxBuffer[0] == '1'){
 				status = button_status;
-				sprintf((char*)TxBuffer,"Received : BUTTON_STATUS \r\n");
+				sprintf((char*)TxBuffer,"BUTTON_STATUS MODE \r\n----------------\r\n PRESS BLUE BUTTON: PRESS \r\n LEFT BLUE BUTTON: UNPRESS \r\n x: Back to menu \r\n----------------\r\n");
 				HAL_UART_Transmit_DMA(&huart2, TxBuffer, strlen((char*)TxBuffer));
 				RxBuffer[0] = '\000';
 			}else if(RxBuffer[0] != '0' && RxBuffer[0] != '1' && RxBuffer[0] != '\000' && RxBuffer[0] != '\0'){
 				RxBuffer[0] = '\000';
-				sprintf((char*)TxBuffer,"Received : KUY \r\n");
+				sprintf((char*)TxBuffer,"Please choose other button \r\n");
 				HAL_UART_Transmit_DMA(&huart2, TxBuffer, strlen((char*)TxBuffer));
 			}
 			break;
@@ -319,50 +317,64 @@ void main_state_machine(){
 		case LED_Control:
 			if(RxBuffer[0] == 'a'){
 				LED_HZ += 1;
-				sprintf((char*)TxBuffer,"Received : Gain more HZ \r\n");
+				sprintf((char*)TxBuffer,"Gain more HZ %d\r\n", LED_HZ);
 				HAL_UART_Transmit_DMA(&huart2, TxBuffer, strlen((char*)TxBuffer));
 				RxBuffer[0] = '\000';
 			}else if(RxBuffer[0] == 's'){
 				LED_HZ -= 1;
-				sprintf((char*)TxBuffer,"Received : Reduce HZ \r\n");
+				sprintf((char*)TxBuffer,"Reduce HZ %d\r\n", LED_HZ);
 				HAL_UART_Transmit_DMA(&huart2, TxBuffer, strlen((char*)TxBuffer));
 				RxBuffer[0] = '\000';
-				if(LED_HZ <= 0){
-					LED_HZ = 0;
+				if(LED_HZ <= 1){
+					LED_HZ = 1;
 				}
 			}else if(RxBuffer[0] == 'd'){
-				on_off *= -1;
+				if(on_off == 0){
+					on_off = 1;
+					sprintf((char*)TxBuffer,"LIGHT ON\r\n");
+					HAL_UART_Transmit_DMA(&huart2, TxBuffer, strlen((char*)TxBuffer));
+				}else if(on_off == 1){
+					on_off = 0;
+					sprintf((char*)TxBuffer,"LIGHT OFF\r\n");
+					HAL_UART_Transmit_DMA(&huart2, TxBuffer, strlen((char*)TxBuffer));
+				}
 				RxBuffer[0] = '\000';
 			}else if(RxBuffer[0] == 'x'){
-				sprintf((char*)TxBuffer,"Received : Menu \r\n");
+				sprintf((char*)TxBuffer,"\r\n\r\n\r\n\r\n\r\nChoose which of this topics\r\n-----------------\r\n 0: LED Control\r\n 1: Button Status\r\n-------------------");
 				HAL_UART_Transmit_DMA(&huart2, TxBuffer, strlen((char*)TxBuffer));
 				status = decision;
 				RxBuffer[0] = '\000';
 			}else if(RxBuffer[0] != 'a' && RxBuffer[0] != 's' && RxBuffer[0] != 'd' && RxBuffer[0] != 'x' && RxBuffer[0] != '\000' && RxBuffer[0] != '\0'){
 				RxBuffer[0] = '\000';
-				sprintf((char*)TxBuffer,"Received : KUY \r\n");
+				sprintf((char*)TxBuffer,"Please choose other button \r\n");
 				HAL_UART_Transmit_DMA(&huart2, TxBuffer, strlen((char*)TxBuffer));
 			}
 			break;
 
 		case button_status:
 			state = HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13);
-			if(!state){
-				sprintf((char*)TxBuffer,"Received : Press \r\n");
-				HAL_UART_Transmit_DMA(&huart2, TxBuffer, strlen((char*)TxBuffer));
+			static uint32_t timestamp2 = 0;
+			if(HAL_GetTick()>=timestamp2)
+			{
+				timestamp2 = HAL_GetTick() + 1000;
+				if(!state){
+					sprintf((char*)TxBuffer,"Button Press \r\n");
+					HAL_UART_Transmit_DMA(&huart2, TxBuffer, strlen((char*)TxBuffer));
+				}
+				else if(state){
+					sprintf((char*)TxBuffer,"Button Unpress \r\n");
+					HAL_UART_Transmit_DMA(&huart2, TxBuffer, strlen((char*)TxBuffer));
+				}
 			}
-			else if(state){
-				sprintf((char*)TxBuffer,"Received : Unpress \r\n");
-				HAL_UART_Transmit_DMA(&huart2, TxBuffer, strlen((char*)TxBuffer));
-			}if(RxBuffer[0] == 'x'){
-				sprintf((char*)TxBuffer,"Received : Menu \r\n");
+			if(RxBuffer[0] == 'x'){
+				sprintf((char*)TxBuffer,"\r\n\r\n\r\n\r\n\r\nChoose which of this topics\r\n-----------------\r\n 0: LED Control\r\n 1: Button Status\r\n-------------------");
 				HAL_UART_Transmit_DMA(&huart2, TxBuffer, strlen((char*)TxBuffer));
 				status = decision;
 				RxBuffer[0] = '\000';
 			}else if(RxBuffer[0] != 'x' && RxBuffer[0] != '\000' && RxBuffer[0] != '\0'){
-				RxBuffer[0] = '\000';
-				sprintf((char*)TxBuffer,"Received : KUY \r\n");
+				sprintf((char*)TxBuffer,"Please choose other button \r\n");
 				HAL_UART_Transmit_DMA(&huart2, TxBuffer, strlen((char*)TxBuffer));
+				RxBuffer[0] = '\000';
 			}
 			break;
 

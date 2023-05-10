@@ -690,3 +690,890 @@ Finished building: default.size.stdout
  
 Finished building: LAB_5.list
  
+05:30:42 **** Incremental Build of configuration Debug for project LAB_5 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:123:3: warning: implicit declaration of function 'UARTDMAConfig' [-Wimplicit-function-declaration]
+  123 |   UARTDMAConfig();
+      |   ^~~~~~~~~~~~~
+../Core/Src/main.c:127:4: warning: implicit declaration of function 'main_state_machine' [-Wimplicit-function-declaration]
+  127 |    main_state_machine();
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:128:4: warning: implicit declaration of function 'DummyTask' [-Wimplicit-function-declaration]
+  128 |    DummyTask();
+      |    ^~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:268:6: warning: conflicting types for 'UARTDMAConfig'
+  268 | void UARTDMAConfig(){
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:123:3: note: previous implicit declaration of 'UARTDMAConfig' was here
+  123 |   UARTDMAConfig();
+      |   ^~~~~~~~~~~~~
+../Core/Src/main.c:272:6: warning: conflicting types for 'DummyTask'
+  272 | void DummyTask()
+      |      ^~~~~~~~~
+../Core/Src/main.c:128:4: note: previous implicit declaration of 'DummyTask' was here
+  128 |    DummyTask();
+      |    ^~~~~~~~~
+../Core/Src/main.c:299:6: warning: conflicting types for 'main_state_machine'
+  299 | void main_state_machine(){
+      |      ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:127:4: note: previous implicit declaration of 'main_state_machine' was here
+  127 |    main_state_machine();
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'main_state_machine':
+../Core/Src/main.c:322:44: warning: format '%s' expects argument of type 'char *', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  322 |     sprintf((char*)TxBuffer,"Gain more HZ %s\r\n", LED_HZ);
+      |                                           ~^       ~~~~~~
+      |                                            |       |
+      |                                            char *  uint32_t {aka long unsigned int}
+      |                                           %ld
+../Core/Src/main.c:327:48: warning: unknown escape sequence: '\R'
+  327 |     sprintf((char*)TxBuffer,"\Reduce HZ %s\r\n", LED_HZ);
+      |                                                ^
+../Core/Src/main.c:327:42: warning: format '%s' expects argument of type 'char *', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  327 |     sprintf((char*)TxBuffer,"\Reduce HZ %s\r\n", LED_HZ);
+      |                                         ~^       ~~~~~~
+      |                                          |       |
+      |                                          char *  uint32_t {aka long unsigned int}
+      |                                         %ld
+../Core/Src/main.c:300:2: warning: enumeration value 'Speed_Up' not handled in switch [-Wswitch]
+  300 |  switch (status){
+      |  ^~~~~~
+../Core/Src/main.c:300:2: warning: enumeration value 'Speed_Down' not handled in switch [-Wswitch]
+../Core/Src/main.c:300:2: warning: enumeration value 'On_off' not handled in switch [-Wswitch]
+../Core/Src/main.c:300:2: warning: enumeration value 'back' not handled in switch [-Wswitch]
+../Core/Src/main.c:300:2: warning: enumeration value 'show_button_status' not handled in switch [-Wswitch]
+arm-none-eabi-gcc -o "LAB_5.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Github\LAB5\LAB_5\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LAB_5.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LAB_5.elf
+ 
+arm-none-eabi-size   LAB_5.elf 
+arm-none-eabi-objdump -h -S  LAB_5.elf  > "LAB_5.list"
+   text	   data	    bss	    dec	    hex	filename
+  18088	    124	   2884	  21096	   5268	LAB_5.elf
+Finished building: default.size.stdout
+ 
+Finished building: LAB_5.list
+ 
+05:31:29 **** Incremental Build of configuration Debug for project LAB_5 ****
+make -j12 all 
+arm-none-eabi-size   LAB_5.elf 
+   text	   data	    bss	    dec	    hex	filename
+  18088	    124	   2884	  21096	   5268	LAB_5.elf
+Finished building: default.size.stdout
+ 
+05:32:53 **** Incremental Build of configuration Debug for project LAB_5 ****
+make -j12 all 
+arm-none-eabi-size   LAB_5.elf 
+   text	   data	    bss	    dec	    hex	filename
+  18088	    124	   2884	  21096	   5268	LAB_5.elf
+Finished building: default.size.stdout
+ 
+05:34:22 **** Incremental Build of configuration Debug for project LAB_5 ****
+make -j12 all 
+arm-none-eabi-size   LAB_5.elf 
+   text	   data	    bss	    dec	    hex	filename
+  18088	    124	   2884	  21096	   5268	LAB_5.elf
+Finished building: default.size.stdout
+ 
+05:36:50 **** Incremental Build of configuration Debug for project LAB_5 ****
+make -j12 all 
+arm-none-eabi-size   LAB_5.elf 
+   text	   data	    bss	    dec	    hex	filename
+  18088	    124	   2884	  21096	   5268	LAB_5.elf
+Finished building: default.size.stdout
+ 
+05:40:18 **** Incremental Build of configuration Debug for project LAB_5 ****
+make -j12 all 
+arm-none-eabi-size   LAB_5.elf 
+   text	   data	    bss	    dec	    hex	filename
+  18088	    124	   2884	  21096	   5268	LAB_5.elf
+Finished building: default.size.stdout
+ 
+06:28:09 **** Incremental Build of configuration Debug for project LAB_5 ****
+make -j12 all 
+arm-none-eabi-size   LAB_5.elf 
+   text	   data	    bss	    dec	    hex	filename
+  18088	    124	   2884	  21096	   5268	LAB_5.elf
+Finished building: default.size.stdout
+ 
+06:31:46 **** Incremental Build of configuration Debug for project LAB_5 ****
+make -j12 all 
+arm-none-eabi-size   LAB_5.elf 
+   text	   data	    bss	    dec	    hex	filename
+  18088	    124	   2884	  21096	   5268	LAB_5.elf
+Finished building: default.size.stdout
+ 
+06:32:41 **** Incremental Build of configuration Debug for project LAB_5 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:127:4: warning: implicit declaration of function 'main_state_machine' [-Wimplicit-function-declaration]
+  127 |    main_state_machine();
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:128:4: warning: implicit declaration of function 'DummyTask' [-Wimplicit-function-declaration]
+  128 |    DummyTask();
+      |    ^~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:272:6: warning: conflicting types for 'DummyTask'
+  272 | void DummyTask()
+      |      ^~~~~~~~~
+../Core/Src/main.c:128:4: note: previous implicit declaration of 'DummyTask' was here
+  128 |    DummyTask();
+      |    ^~~~~~~~~
+../Core/Src/main.c:299:6: warning: conflicting types for 'main_state_machine'
+  299 | void main_state_machine(){
+      |      ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:127:4: note: previous implicit declaration of 'main_state_machine' was here
+  127 |    main_state_machine();
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'main_state_machine':
+../Core/Src/main.c:322:44: warning: format '%s' expects argument of type 'char *', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  322 |     sprintf((char*)TxBuffer,"Gain more HZ %s\r\n", LED_HZ);
+      |                                           ~^       ~~~~~~
+      |                                            |       |
+      |                                            char *  uint32_t {aka long unsigned int}
+      |                                           %ld
+../Core/Src/main.c:327:48: warning: unknown escape sequence: '\R'
+  327 |     sprintf((char*)TxBuffer,"\Reduce HZ %s\r\n", LED_HZ);
+      |                                                ^
+../Core/Src/main.c:327:42: warning: format '%s' expects argument of type 'char *', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  327 |     sprintf((char*)TxBuffer,"\Reduce HZ %s\r\n", LED_HZ);
+      |                                         ~^       ~~~~~~
+      |                                          |       |
+      |                                          char *  uint32_t {aka long unsigned int}
+      |                                         %ld
+../Core/Src/main.c:300:2: warning: enumeration value 'Speed_Up' not handled in switch [-Wswitch]
+  300 |  switch (status){
+      |  ^~~~~~
+../Core/Src/main.c:300:2: warning: enumeration value 'Speed_Down' not handled in switch [-Wswitch]
+../Core/Src/main.c:300:2: warning: enumeration value 'On_off' not handled in switch [-Wswitch]
+../Core/Src/main.c:300:2: warning: enumeration value 'back' not handled in switch [-Wswitch]
+../Core/Src/main.c:300:2: warning: enumeration value 'show_button_status' not handled in switch [-Wswitch]
+arm-none-eabi-gcc -o "LAB_5.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Github\LAB5\LAB_5\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LAB_5.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LAB_5.elf
+ 
+arm-none-eabi-size   LAB_5.elf 
+arm-none-eabi-objdump -h -S  LAB_5.elf  > "LAB_5.list"
+   text	   data	    bss	    dec	    hex	filename
+  17276	    124	   2884	  20284	   4f3c	LAB_5.elf
+Finished building: default.size.stdout
+ 
+Finished building: LAB_5.list
+ 
+06:33:15 **** Incremental Build of configuration Debug for project LAB_5 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:292:3: warning: implicit declaration of function 'main_state_machine' [-Wimplicit-function-declaration]
+  292 |   main_state_machine();
+      |   ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:299:6: warning: conflicting types for 'main_state_machine'
+  299 | void main_state_machine(){
+      |      ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:292:3: note: previous implicit declaration of 'main_state_machine' was here
+  292 |   main_state_machine();
+      |   ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'main_state_machine':
+../Core/Src/main.c:322:44: warning: format '%s' expects argument of type 'char *', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  322 |     sprintf((char*)TxBuffer,"Gain more HZ %s\r\n", LED_HZ);
+      |                                           ~^       ~~~~~~
+      |                                            |       |
+      |                                            char *  uint32_t {aka long unsigned int}
+      |                                           %ld
+../Core/Src/main.c:327:48: warning: unknown escape sequence: '\R'
+  327 |     sprintf((char*)TxBuffer,"\Reduce HZ %s\r\n", LED_HZ);
+      |                                                ^
+../Core/Src/main.c:327:42: warning: format '%s' expects argument of type 'char *', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  327 |     sprintf((char*)TxBuffer,"\Reduce HZ %s\r\n", LED_HZ);
+      |                                         ~^       ~~~~~~
+      |                                          |       |
+      |                                          char *  uint32_t {aka long unsigned int}
+      |                                         %ld
+../Core/Src/main.c:300:2: warning: enumeration value 'Speed_Up' not handled in switch [-Wswitch]
+  300 |  switch (status){
+      |  ^~~~~~
+../Core/Src/main.c:300:2: warning: enumeration value 'Speed_Down' not handled in switch [-Wswitch]
+../Core/Src/main.c:300:2: warning: enumeration value 'On_off' not handled in switch [-Wswitch]
+../Core/Src/main.c:300:2: warning: enumeration value 'back' not handled in switch [-Wswitch]
+../Core/Src/main.c:300:2: warning: enumeration value 'show_button_status' not handled in switch [-Wswitch]
+arm-none-eabi-gcc -o "LAB_5.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Github\LAB5\LAB_5\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LAB_5.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LAB_5.elf
+ 
+arm-none-eabi-size   LAB_5.elf 
+arm-none-eabi-objdump -h -S  LAB_5.elf  > "LAB_5.list"
+   text	   data	    bss	    dec	    hex	filename
+  17124	    124	   2884	  20132	   4ea4	LAB_5.elf
+Finished building: default.size.stdout
+ 
+Finished building: LAB_5.list
+ 
+06:34:14 **** Incremental Build of configuration Debug for project LAB_5 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:127:4: warning: implicit declaration of function 'main_state_machine' [-Wimplicit-function-declaration]
+  127 |    main_state_machine();
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:128:4: warning: implicit declaration of function 'DummyTask' [-Wimplicit-function-declaration]
+  128 |    DummyTask();
+      |    ^~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:272:6: warning: conflicting types for 'DummyTask'
+  272 | void DummyTask()
+      |      ^~~~~~~~~
+../Core/Src/main.c:128:4: note: previous implicit declaration of 'DummyTask' was here
+  128 |    DummyTask();
+      |    ^~~~~~~~~
+../Core/Src/main.c:299:6: warning: conflicting types for 'main_state_machine'
+  299 | void main_state_machine(){
+      |      ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:127:4: note: previous implicit declaration of 'main_state_machine' was here
+  127 |    main_state_machine();
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'main_state_machine':
+../Core/Src/main.c:322:44: warning: format '%s' expects argument of type 'char *', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  322 |     sprintf((char*)TxBuffer,"Gain more HZ %s\r\n", LED_HZ);
+      |                                           ~^       ~~~~~~
+      |                                            |       |
+      |                                            char *  uint32_t {aka long unsigned int}
+      |                                           %ld
+../Core/Src/main.c:327:48: warning: unknown escape sequence: '\R'
+  327 |     sprintf((char*)TxBuffer,"\Reduce HZ %s\r\n", LED_HZ);
+      |                                                ^
+../Core/Src/main.c:327:42: warning: format '%s' expects argument of type 'char *', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  327 |     sprintf((char*)TxBuffer,"\Reduce HZ %s\r\n", LED_HZ);
+      |                                         ~^       ~~~~~~
+      |                                          |       |
+      |                                          char *  uint32_t {aka long unsigned int}
+      |                                         %ld
+../Core/Src/main.c:300:2: warning: enumeration value 'Speed_Up' not handled in switch [-Wswitch]
+  300 |  switch (status){
+      |  ^~~~~~
+../Core/Src/main.c:300:2: warning: enumeration value 'Speed_Down' not handled in switch [-Wswitch]
+../Core/Src/main.c:300:2: warning: enumeration value 'On_off' not handled in switch [-Wswitch]
+../Core/Src/main.c:300:2: warning: enumeration value 'back' not handled in switch [-Wswitch]
+../Core/Src/main.c:300:2: warning: enumeration value 'show_button_status' not handled in switch [-Wswitch]
+arm-none-eabi-gcc -o "LAB_5.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Github\LAB5\LAB_5\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LAB_5.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LAB_5.elf
+ 
+arm-none-eabi-size   LAB_5.elf 
+arm-none-eabi-objdump -h -S  LAB_5.elf  > "LAB_5.list"
+   text	   data	    bss	    dec	    hex	filename
+  17276	    124	   2884	  20284	   4f3c	LAB_5.elf
+Finished building: default.size.stdout
+ 
+Finished building: LAB_5.list
+ 
+06:35:41 **** Incremental Build of configuration Debug for project LAB_5 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:127:4: warning: implicit declaration of function 'main_state_machine' [-Wimplicit-function-declaration]
+  127 |    main_state_machine();
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:128:4: warning: implicit declaration of function 'DummyTask' [-Wimplicit-function-declaration]
+  128 |    DummyTask();
+      |    ^~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:272:6: warning: conflicting types for 'DummyTask'
+  272 | void DummyTask()
+      |      ^~~~~~~~~
+../Core/Src/main.c:128:4: note: previous implicit declaration of 'DummyTask' was here
+  128 |    DummyTask();
+      |    ^~~~~~~~~
+../Core/Src/main.c:299:6: warning: conflicting types for 'main_state_machine'
+  299 | void main_state_machine(){
+      |      ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:127:4: note: previous implicit declaration of 'main_state_machine' was here
+  127 |    main_state_machine();
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'main_state_machine':
+../Core/Src/main.c:322:44: warning: format '%s' expects argument of type 'char *', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  322 |     sprintf((char*)TxBuffer,"Gain more HZ %s\r\n", LED_HZ);
+      |                                           ~^       ~~~~~~
+      |                                            |       |
+      |                                            char *  uint32_t {aka long unsigned int}
+      |                                           %ld
+../Core/Src/main.c:327:48: warning: unknown escape sequence: '\R'
+  327 |     sprintf((char*)TxBuffer,"\Reduce HZ %s\r\n", LED_HZ);
+      |                                                ^
+../Core/Src/main.c:327:42: warning: format '%s' expects argument of type 'char *', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  327 |     sprintf((char*)TxBuffer,"\Reduce HZ %s\r\n", LED_HZ);
+      |                                         ~^       ~~~~~~
+      |                                          |       |
+      |                                          char *  uint32_t {aka long unsigned int}
+      |                                         %ld
+../Core/Src/main.c:300:2: warning: enumeration value 'Speed_Up' not handled in switch [-Wswitch]
+  300 |  switch (status){
+      |  ^~~~~~
+../Core/Src/main.c:300:2: warning: enumeration value 'Speed_Down' not handled in switch [-Wswitch]
+../Core/Src/main.c:300:2: warning: enumeration value 'On_off' not handled in switch [-Wswitch]
+../Core/Src/main.c:300:2: warning: enumeration value 'back' not handled in switch [-Wswitch]
+../Core/Src/main.c:300:2: warning: enumeration value 'show_button_status' not handled in switch [-Wswitch]
+arm-none-eabi-gcc -o "LAB_5.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Github\LAB5\LAB_5\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LAB_5.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LAB_5.elf
+ 
+arm-none-eabi-size   LAB_5.elf 
+arm-none-eabi-objdump -h -S  LAB_5.elf  > "LAB_5.list"
+   text	   data	    bss	    dec	    hex	filename
+  17276	    128	   2880	  20284	   4f3c	LAB_5.elf
+Finished building: default.size.stdout
+ 
+Finished building: LAB_5.list
+ 
+06:39:56 **** Incremental Build of configuration Debug for project LAB_5 ****
+make -j12 all 
+arm-none-eabi-size   LAB_5.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17276	    128	   2880	  20284	   4f3c	LAB_5.elf
+Finished building: default.size.stdout
+ 
+06:42:23 **** Incremental Build of configuration Debug for project LAB_5 ****
+make -j12 all 
+arm-none-eabi-size   LAB_5.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17276	    128	   2880	  20284	   4f3c	LAB_5.elf
+Finished building: default.size.stdout
+ 
+06:45:23 **** Incremental Build of configuration Debug for project LAB_5 ****
+make -j12 all 
+arm-none-eabi-size   LAB_5.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17276	    128	   2880	  20284	   4f3c	LAB_5.elf
+Finished building: default.size.stdout
+ 
+06:46:59 **** Incremental Build of configuration Debug for project LAB_5 ****
+make -j12 all 
+arm-none-eabi-size   LAB_5.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17276	    128	   2880	  20284	   4f3c	LAB_5.elf
+Finished building: default.size.stdout
+ 
+06:48:35 **** Incremental Build of configuration Debug for project LAB_5 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:119:3: warning: implicit declaration of function 'UARTDMAConfig' [-Wimplicit-function-declaration]
+  119 |   UARTDMAConfig();
+      |   ^~~~~~~~~~~~~
+../Core/Src/main.c:123:4: warning: implicit declaration of function 'main_state_machine' [-Wimplicit-function-declaration]
+  123 |    main_state_machine();
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:124:4: warning: implicit declaration of function 'DummyTask' [-Wimplicit-function-declaration]
+  124 |    DummyTask();
+      |    ^~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:264:6: warning: conflicting types for 'UARTDMAConfig'
+  264 | void UARTDMAConfig(){
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:119:3: note: previous implicit declaration of 'UARTDMAConfig' was here
+  119 |   UARTDMAConfig();
+      |   ^~~~~~~~~~~~~
+../Core/Src/main.c:268:6: warning: conflicting types for 'DummyTask'
+  268 | void DummyTask()
+      |      ^~~~~~~~~
+../Core/Src/main.c:124:4: note: previous implicit declaration of 'DummyTask' was here
+  124 |    DummyTask();
+      |    ^~~~~~~~~
+../Core/Src/main.c:295:6: warning: conflicting types for 'main_state_machine'
+  295 | void main_state_machine(){
+      |      ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:123:4: note: previous implicit declaration of 'main_state_machine' was here
+  123 |    main_state_machine();
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'main_state_machine':
+../Core/Src/main.c:318:44: warning: format '%s' expects argument of type 'char *', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  318 |     sprintf((char*)TxBuffer,"Gain more HZ %s\r\n", LED_HZ);
+      |                                           ~^       ~~~~~~
+      |                                            |       |
+      |                                            char *  uint32_t {aka long unsigned int}
+      |                                           %ld
+../Core/Src/main.c:323:48: warning: unknown escape sequence: '\R'
+  323 |     sprintf((char*)TxBuffer,"\Reduce HZ %s\r\n", LED_HZ);
+      |                                                ^
+../Core/Src/main.c:323:42: warning: format '%s' expects argument of type 'char *', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  323 |     sprintf((char*)TxBuffer,"\Reduce HZ %s\r\n", LED_HZ);
+      |                                         ~^       ~~~~~~
+      |                                          |       |
+      |                                          char *  uint32_t {aka long unsigned int}
+      |                                         %ld
+../Core/Src/main.c:296:2: warning: enumeration value 'Speed_Up' not handled in switch [-Wswitch]
+  296 |  switch (status){
+      |  ^~~~~~
+../Core/Src/main.c:296:2: warning: enumeration value 'Speed_Down' not handled in switch [-Wswitch]
+../Core/Src/main.c:296:2: warning: enumeration value 'On_off' not handled in switch [-Wswitch]
+../Core/Src/main.c:296:2: warning: enumeration value 'back' not handled in switch [-Wswitch]
+../Core/Src/main.c:296:2: warning: enumeration value 'show_button_status' not handled in switch [-Wswitch]
+arm-none-eabi-gcc -o "LAB_5.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Github\LAB5\LAB_5\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LAB_5.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LAB_5.elf
+ 
+arm-none-eabi-size   LAB_5.elf 
+arm-none-eabi-objdump -h -S  LAB_5.elf  > "LAB_5.list"
+   text	   data	    bss	    dec	    hex	filename
+  18088	    128	   2880	  21096	   5268	LAB_5.elf
+Finished building: default.size.stdout
+ 
+Finished building: LAB_5.list
+ 
+06:52:54 **** Incremental Build of configuration Debug for project LAB_5 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:119:3: warning: implicit declaration of function 'UARTDMAConfig' [-Wimplicit-function-declaration]
+  119 |   UARTDMAConfig();
+      |   ^~~~~~~~~~~~~
+../Core/Src/main.c:123:4: warning: implicit declaration of function 'main_state_machine' [-Wimplicit-function-declaration]
+  123 |    main_state_machine();
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:124:4: warning: implicit declaration of function 'DummyTask' [-Wimplicit-function-declaration]
+  124 |    DummyTask();
+      |    ^~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:264:6: warning: conflicting types for 'UARTDMAConfig'
+  264 | void UARTDMAConfig(){
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:119:3: note: previous implicit declaration of 'UARTDMAConfig' was here
+  119 |   UARTDMAConfig();
+      |   ^~~~~~~~~~~~~
+../Core/Src/main.c:268:6: warning: conflicting types for 'DummyTask'
+  268 | void DummyTask()
+      |      ^~~~~~~~~
+../Core/Src/main.c:124:4: note: previous implicit declaration of 'DummyTask' was here
+  124 |    DummyTask();
+      |    ^~~~~~~~~
+../Core/Src/main.c:295:6: warning: conflicting types for 'main_state_machine'
+  295 | void main_state_machine(){
+      |      ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:123:4: note: previous implicit declaration of 'main_state_machine' was here
+  123 |    main_state_machine();
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'main_state_machine':
+../Core/Src/main.c:318:52: warning: implicit declaration of function 'itoa' [-Wimplicit-function-declaration]
+  318 |     sprintf((char*)TxBuffer,"Gain more HZ %s\r\n", itoa(LED_HZ, (char*)TxBuffer, 10));
+      |                                                    ^~~~
+../Core/Src/main.c:318:44: warning: format '%s' expects argument of type 'char *', but argument 3 has type 'int' [-Wformat=]
+  318 |     sprintf((char*)TxBuffer,"Gain more HZ %s\r\n", itoa(LED_HZ, (char*)TxBuffer, 10));
+      |                                           ~^       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                            |       |
+      |                                            char *  int
+      |                                           %d
+../Core/Src/main.c:323:48: warning: unknown escape sequence: '\R'
+  323 |     sprintf((char*)TxBuffer,"\Reduce HZ %s\r\n", itoa(LED_HZ, (char*)TxBuffer, 10));
+      |                                                ^
+../Core/Src/main.c:323:42: warning: format '%s' expects argument of type 'char *', but argument 3 has type 'int' [-Wformat=]
+  323 |     sprintf((char*)TxBuffer,"\Reduce HZ %s\r\n", itoa(LED_HZ, (char*)TxBuffer, 10));
+      |                                         ~^       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                          |       |
+      |                                          char *  int
+      |                                         %d
+../Core/Src/main.c:296:2: warning: enumeration value 'Speed_Up' not handled in switch [-Wswitch]
+  296 |  switch (status){
+      |  ^~~~~~
+../Core/Src/main.c:296:2: warning: enumeration value 'Speed_Down' not handled in switch [-Wswitch]
+../Core/Src/main.c:296:2: warning: enumeration value 'On_off' not handled in switch [-Wswitch]
+../Core/Src/main.c:296:2: warning: enumeration value 'back' not handled in switch [-Wswitch]
+../Core/Src/main.c:296:2: warning: enumeration value 'show_button_status' not handled in switch [-Wswitch]
+arm-none-eabi-gcc -o "LAB_5.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Github\LAB5\LAB_5\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LAB_5.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LAB_5.elf
+ 
+arm-none-eabi-size   LAB_5.elf 
+arm-none-eabi-objdump -h -S  LAB_5.elf  > "LAB_5.list"
+   text	   data	    bss	    dec	    hex	filename
+  18332	    128	   2880	  21340	   535c	LAB_5.elf
+Finished building: default.size.stdout
+ 
+Finished building: LAB_5.list
+ 
+06:56:52 **** Incremental Build of configuration Debug for project LAB_5 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:119:3: warning: implicit declaration of function 'UARTDMAConfig' [-Wimplicit-function-declaration]
+  119 |   UARTDMAConfig();
+      |   ^~~~~~~~~~~~~
+../Core/Src/main.c:123:4: warning: implicit declaration of function 'main_state_machine' [-Wimplicit-function-declaration]
+  123 |    main_state_machine();
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:124:4: warning: implicit declaration of function 'DummyTask' [-Wimplicit-function-declaration]
+  124 |    DummyTask();
+      |    ^~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:264:6: warning: conflicting types for 'UARTDMAConfig'
+  264 | void UARTDMAConfig(){
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:119:3: note: previous implicit declaration of 'UARTDMAConfig' was here
+  119 |   UARTDMAConfig();
+      |   ^~~~~~~~~~~~~
+../Core/Src/main.c:268:6: warning: conflicting types for 'DummyTask'
+  268 | void DummyTask()
+      |      ^~~~~~~~~
+../Core/Src/main.c:124:4: note: previous implicit declaration of 'DummyTask' was here
+  124 |    DummyTask();
+      |    ^~~~~~~~~
+../Core/Src/main.c:295:6: warning: conflicting types for 'main_state_machine'
+  295 | void main_state_machine(){
+      |      ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:123:4: note: previous implicit declaration of 'main_state_machine' was here
+  123 |    main_state_machine();
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'main_state_machine':
+../Core/Src/main.c:318:44: warning: format '%s' expects argument of type 'char *', but argument 3 has type 'long unsigned int' [-Wformat=]
+  318 |     sprintf((char*)TxBuffer,"Gain more HZ %s\r\n", (unsigned long) LED_HZ);
+      |                                           ~^       ~~~~~~~~~~~~~~~~~~~~~~
+      |                                            |       |
+      |                                            char *  long unsigned int
+      |                                           %ld
+../Core/Src/main.c:323:48: warning: unknown escape sequence: '\R'
+  323 |     sprintf((char*)TxBuffer,"\Reduce HZ %s\r\n", itoa(LED_HZ));
+      |                                                ^
+../Core/Src/main.c:323:50: warning: implicit declaration of function 'itoa' [-Wimplicit-function-declaration]
+  323 |     sprintf((char*)TxBuffer,"\Reduce HZ %s\r\n", itoa(LED_HZ));
+      |                                                  ^~~~
+../Core/Src/main.c:323:42: warning: format '%s' expects argument of type 'char *', but argument 3 has type 'int' [-Wformat=]
+  323 |     sprintf((char*)TxBuffer,"\Reduce HZ %s\r\n", itoa(LED_HZ));
+      |                                         ~^       ~~~~~~~~~~~~
+      |                                          |       |
+      |                                          char *  int
+      |                                         %d
+../Core/Src/main.c:296:2: warning: enumeration value 'Speed_Up' not handled in switch [-Wswitch]
+  296 |  switch (status){
+      |  ^~~~~~
+../Core/Src/main.c:296:2: warning: enumeration value 'Speed_Down' not handled in switch [-Wswitch]
+../Core/Src/main.c:296:2: warning: enumeration value 'On_off' not handled in switch [-Wswitch]
+../Core/Src/main.c:296:2: warning: enumeration value 'back' not handled in switch [-Wswitch]
+../Core/Src/main.c:296:2: warning: enumeration value 'show_button_status' not handled in switch [-Wswitch]
+arm-none-eabi-gcc -o "LAB_5.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Github\LAB5\LAB_5\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LAB_5.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LAB_5.elf
+ 
+arm-none-eabi-size   LAB_5.elf 
+arm-none-eabi-objdump -h -S  LAB_5.elf  > "LAB_5.list"
+   text	   data	    bss	    dec	    hex	filename
+  18316	    128	   2880	  21324	   534c	LAB_5.elf
+Finished building: default.size.stdout
+ 
+Finished building: LAB_5.list
+ 
+07:00:57 **** Incremental Build of configuration Debug for project LAB_5 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:119:3: warning: implicit declaration of function 'UARTDMAConfig' [-Wimplicit-function-declaration]
+  119 |   UARTDMAConfig();
+      |   ^~~~~~~~~~~~~
+../Core/Src/main.c:123:4: warning: implicit declaration of function 'main_state_machine' [-Wimplicit-function-declaration]
+  123 |    main_state_machine();
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:124:4: warning: implicit declaration of function 'DummyTask' [-Wimplicit-function-declaration]
+  124 |    DummyTask();
+      |    ^~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:264:6: warning: conflicting types for 'UARTDMAConfig'
+  264 | void UARTDMAConfig(){
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:119:3: note: previous implicit declaration of 'UARTDMAConfig' was here
+  119 |   UARTDMAConfig();
+      |   ^~~~~~~~~~~~~
+../Core/Src/main.c:268:6: warning: conflicting types for 'DummyTask'
+  268 | void DummyTask()
+      |      ^~~~~~~~~
+../Core/Src/main.c:124:4: note: previous implicit declaration of 'DummyTask' was here
+  124 |    DummyTask();
+      |    ^~~~~~~~~
+../Core/Src/main.c:295:6: warning: conflicting types for 'main_state_machine'
+  295 | void main_state_machine(){
+      |      ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:123:4: note: previous implicit declaration of 'main_state_machine' was here
+  123 |    main_state_machine();
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'main_state_machine':
+../Core/Src/main.c:318:44: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  318 |     sprintf((char*)TxBuffer,"Gain more HZ %d\r\n", LED_HZ);
+      |                                           ~^       ~~~~~~
+      |                                            |       |
+      |                                            int     uint32_t {aka long unsigned int}
+      |                                           %ld
+../Core/Src/main.c:323:48: warning: unknown escape sequence: '\R'
+  323 |     sprintf((char*)TxBuffer,"\Reduce HZ %d\r\n", LED_HZ);
+      |                                                ^
+../Core/Src/main.c:323:42: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  323 |     sprintf((char*)TxBuffer,"\Reduce HZ %d\r\n", LED_HZ);
+      |                                         ~^       ~~~~~~
+      |                                          |       |
+      |                                          int     uint32_t {aka long unsigned int}
+      |                                         %ld
+../Core/Src/main.c:296:2: warning: enumeration value 'Speed_Up' not handled in switch [-Wswitch]
+  296 |  switch (status){
+      |  ^~~~~~
+../Core/Src/main.c:296:2: warning: enumeration value 'Speed_Down' not handled in switch [-Wswitch]
+../Core/Src/main.c:296:2: warning: enumeration value 'On_off' not handled in switch [-Wswitch]
+../Core/Src/main.c:296:2: warning: enumeration value 'back' not handled in switch [-Wswitch]
+../Core/Src/main.c:296:2: warning: enumeration value 'show_button_status' not handled in switch [-Wswitch]
+arm-none-eabi-gcc -o "LAB_5.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Github\LAB5\LAB_5\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LAB_5.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LAB_5.elf
+ 
+arm-none-eabi-size   LAB_5.elf 
+arm-none-eabi-objdump -h -S  LAB_5.elf  > "LAB_5.list"
+   text	   data	    bss	    dec	    hex	filename
+  18088	    128	   2880	  21096	   5268	LAB_5.elf
+Finished building: default.size.stdout
+ 
+Finished building: LAB_5.list
+ 
+07:23:33 **** Incremental Build of configuration Debug for project LAB_5 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:119:3: warning: implicit declaration of function 'UARTDMAConfig' [-Wimplicit-function-declaration]
+  119 |   UARTDMAConfig();
+      |   ^~~~~~~~~~~~~
+../Core/Src/main.c:123:4: warning: implicit declaration of function 'main_state_machine' [-Wimplicit-function-declaration]
+  123 |    main_state_machine();
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:124:4: warning: implicit declaration of function 'DummyTask' [-Wimplicit-function-declaration]
+  124 |    DummyTask();
+      |    ^~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:264:6: warning: conflicting types for 'UARTDMAConfig'
+  264 | void UARTDMAConfig(){
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:119:3: note: previous implicit declaration of 'UARTDMAConfig' was here
+  119 |   UARTDMAConfig();
+      |   ^~~~~~~~~~~~~
+../Core/Src/main.c:268:6: warning: conflicting types for 'DummyTask'
+  268 | void DummyTask()
+      |      ^~~~~~~~~
+../Core/Src/main.c:124:4: note: previous implicit declaration of 'DummyTask' was here
+  124 |    DummyTask();
+      |    ^~~~~~~~~
+../Core/Src/main.c:295:6: warning: conflicting types for 'main_state_machine'
+  295 | void main_state_machine(){
+      |      ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:123:4: note: previous implicit declaration of 'main_state_machine' was here
+  123 |    main_state_machine();
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'main_state_machine':
+../Core/Src/main.c:318:44: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  318 |     sprintf((char*)TxBuffer,"Gain more HZ %d\r\n", LED_HZ);
+      |                                           ~^       ~~~~~~
+      |                                            |       |
+      |                                            int     uint32_t {aka long unsigned int}
+      |                                           %ld
+../Core/Src/main.c:323:48: warning: unknown escape sequence: '\R'
+  323 |     sprintf((char*)TxBuffer,"\Reduce HZ %d\r\n", LED_HZ);
+      |                                                ^
+../Core/Src/main.c:323:42: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  323 |     sprintf((char*)TxBuffer,"\Reduce HZ %d\r\n", LED_HZ);
+      |                                         ~^       ~~~~~~
+      |                                          |       |
+      |                                          int     uint32_t {aka long unsigned int}
+      |                                         %ld
+../Core/Src/main.c:296:2: warning: enumeration value 'Speed_Up' not handled in switch [-Wswitch]
+  296 |  switch (status){
+      |  ^~~~~~
+../Core/Src/main.c:296:2: warning: enumeration value 'Speed_Down' not handled in switch [-Wswitch]
+../Core/Src/main.c:296:2: warning: enumeration value 'On_off' not handled in switch [-Wswitch]
+../Core/Src/main.c:296:2: warning: enumeration value 'back' not handled in switch [-Wswitch]
+../Core/Src/main.c:296:2: warning: enumeration value 'show_button_status' not handled in switch [-Wswitch]
+arm-none-eabi-gcc -o "LAB_5.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Github\LAB5\LAB_5\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LAB_5.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LAB_5.elf
+ 
+arm-none-eabi-size   LAB_5.elf 
+arm-none-eabi-objdump -h -S  LAB_5.elf  > "LAB_5.list"
+   text	   data	    bss	    dec	    hex	filename
+  18184	    128	   2880	  21192	   52c8	LAB_5.elf
+Finished building: default.size.stdout
+ 
+Finished building: LAB_5.list
+ 
+07:28:21 **** Incremental Build of configuration Debug for project LAB_5 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:119:3: warning: implicit declaration of function 'UARTDMAConfig' [-Wimplicit-function-declaration]
+  119 |   UARTDMAConfig();
+      |   ^~~~~~~~~~~~~
+../Core/Src/main.c:123:4: warning: implicit declaration of function 'main_state_machine' [-Wimplicit-function-declaration]
+  123 |    main_state_machine();
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:124:4: warning: implicit declaration of function 'DummyTask' [-Wimplicit-function-declaration]
+  124 |    DummyTask();
+      |    ^~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:264:6: warning: conflicting types for 'UARTDMAConfig'
+  264 | void UARTDMAConfig(){
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:119:3: note: previous implicit declaration of 'UARTDMAConfig' was here
+  119 |   UARTDMAConfig();
+      |   ^~~~~~~~~~~~~
+../Core/Src/main.c:268:6: warning: conflicting types for 'DummyTask'
+  268 | void DummyTask()
+      |      ^~~~~~~~~
+../Core/Src/main.c:124:4: note: previous implicit declaration of 'DummyTask' was here
+  124 |    DummyTask();
+      |    ^~~~~~~~~
+../Core/Src/main.c:295:6: warning: conflicting types for 'main_state_machine'
+  295 | void main_state_machine(){
+      |      ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:123:4: note: previous implicit declaration of 'main_state_machine' was here
+  123 |    main_state_machine();
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'main_state_machine':
+../Core/Src/main.c:318:44: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  318 |     sprintf((char*)TxBuffer,"Gain more HZ %d\r\n", LED_HZ);
+      |                                           ~^       ~~~~~~
+      |                                            |       |
+      |                                            int     uint32_t {aka long unsigned int}
+      |                                           %ld
+../Core/Src/main.c:323:41: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  323 |     sprintf((char*)TxBuffer,"Reduce HZ %d\r\n", LED_HZ);
+      |                                        ~^       ~~~~~~
+      |                                         |       |
+      |                                         int     uint32_t {aka long unsigned int}
+      |                                        %ld
+../Core/Src/main.c:296:2: warning: enumeration value 'Speed_Up' not handled in switch [-Wswitch]
+  296 |  switch (status){
+      |  ^~~~~~
+../Core/Src/main.c:296:2: warning: enumeration value 'Speed_Down' not handled in switch [-Wswitch]
+../Core/Src/main.c:296:2: warning: enumeration value 'On_off' not handled in switch [-Wswitch]
+../Core/Src/main.c:296:2: warning: enumeration value 'back' not handled in switch [-Wswitch]
+../Core/Src/main.c:296:2: warning: enumeration value 'show_button_status' not handled in switch [-Wswitch]
+arm-none-eabi-gcc -o "LAB_5.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Github\LAB5\LAB_5\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LAB_5.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LAB_5.elf
+ 
+arm-none-eabi-size   LAB_5.elf 
+arm-none-eabi-objdump -h -S  LAB_5.elf  > "LAB_5.list"
+   text	   data	    bss	    dec	    hex	filename
+  18288	    128	   2880	  21296	   5330	LAB_5.elf
+Finished building: default.size.stdout
+ 
+Finished building: LAB_5.list
+ 
+07:32:09 **** Incremental Build of configuration Debug for project LAB_5 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:119:3: warning: implicit declaration of function 'UARTDMAConfig' [-Wimplicit-function-declaration]
+  119 |   UARTDMAConfig();
+      |   ^~~~~~~~~~~~~
+../Core/Src/main.c:123:4: warning: implicit declaration of function 'main_state_machine' [-Wimplicit-function-declaration]
+  123 |    main_state_machine();
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:124:4: warning: implicit declaration of function 'DummyTask' [-Wimplicit-function-declaration]
+  124 |    DummyTask();
+      |    ^~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:264:6: warning: conflicting types for 'UARTDMAConfig'
+  264 | void UARTDMAConfig(){
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:119:3: note: previous implicit declaration of 'UARTDMAConfig' was here
+  119 |   UARTDMAConfig();
+      |   ^~~~~~~~~~~~~
+../Core/Src/main.c:268:6: warning: conflicting types for 'DummyTask'
+  268 | void DummyTask()
+      |      ^~~~~~~~~
+../Core/Src/main.c:124:4: note: previous implicit declaration of 'DummyTask' was here
+  124 |    DummyTask();
+      |    ^~~~~~~~~
+../Core/Src/main.c:297:6: warning: conflicting types for 'main_state_machine'
+  297 | void main_state_machine(){
+      |      ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:123:4: note: previous implicit declaration of 'main_state_machine' was here
+  123 |    main_state_machine();
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'main_state_machine':
+../Core/Src/main.c:320:44: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  320 |     sprintf((char*)TxBuffer,"Gain more HZ %d\r\n", LED_HZ);
+      |                                           ~^       ~~~~~~
+      |                                            |       |
+      |                                            int     uint32_t {aka long unsigned int}
+      |                                           %ld
+../Core/Src/main.c:325:41: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  325 |     sprintf((char*)TxBuffer,"Reduce HZ %d\r\n", LED_HZ);
+      |                                        ~^       ~~~~~~
+      |                                         |       |
+      |                                         int     uint32_t {aka long unsigned int}
+      |                                        %ld
+../Core/Src/main.c:298:2: warning: enumeration value 'Speed_Up' not handled in switch [-Wswitch]
+  298 |  switch (status){
+      |  ^~~~~~
+../Core/Src/main.c:298:2: warning: enumeration value 'Speed_Down' not handled in switch [-Wswitch]
+../Core/Src/main.c:298:2: warning: enumeration value 'On_off' not handled in switch [-Wswitch]
+../Core/Src/main.c:298:2: warning: enumeration value 'back' not handled in switch [-Wswitch]
+../Core/Src/main.c:298:2: warning: enumeration value 'show_button_status' not handled in switch [-Wswitch]
+arm-none-eabi-gcc -o "LAB_5.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Github\LAB5\LAB_5\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LAB_5.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LAB_5.elf
+ 
+arm-none-eabi-size   LAB_5.elf 
+arm-none-eabi-objdump -h -S  LAB_5.elf  > "LAB_5.list"
+   text	   data	    bss	    dec	    hex	filename
+  18316	    128	   2880	  21324	   534c	LAB_5.elf
+Finished building: default.size.stdout
+ 
+Finished building: LAB_5.list
+ 
+07:37:23 **** Incremental Build of configuration Debug for project LAB_5 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:119:3: warning: implicit declaration of function 'UARTDMAConfig' [-Wimplicit-function-declaration]
+  119 |   UARTDMAConfig();
+      |   ^~~~~~~~~~~~~
+../Core/Src/main.c:123:4: warning: implicit declaration of function 'main_state_machine' [-Wimplicit-function-declaration]
+  123 |    main_state_machine();
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:124:4: warning: implicit declaration of function 'DummyTask' [-Wimplicit-function-declaration]
+  124 |    DummyTask();
+      |    ^~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:264:6: warning: conflicting types for 'UARTDMAConfig'
+  264 | void UARTDMAConfig(){
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:119:3: note: previous implicit declaration of 'UARTDMAConfig' was here
+  119 |   UARTDMAConfig();
+      |   ^~~~~~~~~~~~~
+../Core/Src/main.c:268:6: warning: conflicting types for 'DummyTask'
+  268 | void DummyTask()
+      |      ^~~~~~~~~
+../Core/Src/main.c:124:4: note: previous implicit declaration of 'DummyTask' was here
+  124 |    DummyTask();
+      |    ^~~~~~~~~
+../Core/Src/main.c:297:6: warning: conflicting types for 'main_state_machine'
+  297 | void main_state_machine(){
+      |      ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:123:4: note: previous implicit declaration of 'main_state_machine' was here
+  123 |    main_state_machine();
+      |    ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'main_state_machine':
+../Core/Src/main.c:320:44: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  320 |     sprintf((char*)TxBuffer,"Gain more HZ %d\r\n", LED_HZ);
+      |                                           ~^       ~~~~~~
+      |                                            |       |
+      |                                            int     uint32_t {aka long unsigned int}
+      |                                           %ld
+../Core/Src/main.c:325:41: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  325 |     sprintf((char*)TxBuffer,"Reduce HZ %d\r\n", LED_HZ);
+      |                                        ~^       ~~~~~~
+      |                                         |       |
+      |                                         int     uint32_t {aka long unsigned int}
+      |                                        %ld
+../Core/Src/main.c:298:2: warning: enumeration value 'Speed_Up' not handled in switch [-Wswitch]
+  298 |  switch (status){
+      |  ^~~~~~
+../Core/Src/main.c:298:2: warning: enumeration value 'Speed_Down' not handled in switch [-Wswitch]
+../Core/Src/main.c:298:2: warning: enumeration value 'On_off' not handled in switch [-Wswitch]
+../Core/Src/main.c:298:2: warning: enumeration value 'back' not handled in switch [-Wswitch]
+../Core/Src/main.c:298:2: warning: enumeration value 'show_button_status' not handled in switch [-Wswitch]
+arm-none-eabi-gcc -o "LAB_5.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Github\LAB5\LAB_5\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LAB_5.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LAB_5.elf
+ 
+arm-none-eabi-size   LAB_5.elf 
+arm-none-eabi-objdump -h -S  LAB_5.elf  > "LAB_5.list"
+   text	   data	    bss	    dec	    hex	filename
+  18344	    128	   2880	  21352	   5368	LAB_5.elf
+Finished building: default.size.stdout
+ 
+Finished building: LAB_5.list
+ 
